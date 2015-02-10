@@ -1,0 +1,47 @@
+{
+  "name": "grunt-image-debower",
+  "version": "0.0.1",
+  "description": "Copies images from a bower repository based upon what is included in html files.",
+  "homepage": "https://github.com/MJDSys/grunt-image-copier",
+  "author": {
+    "name": "Matthew Dawson",
+    "email": "matthew@mjdsystems.ca"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/MJDSys/grunt-image-debower.git"
+  },
+  "bugs": {
+    "url": "https://github.com/MJDSys/grunt-image-debower/issues"
+  },
+  "licenses": [
+    {
+      "type": "LGPL-2.1+",
+      "url": "https://github.com/MJDSys/grunt-image-debower/blob/master/LICENSE"
+    }
+  ],
+  "engines": {
+    "node": ">= 0.10.0"
+  },
+  "scripts": {
+    "test": "grunt test"
+  },
+  "devDependencies": {
+    "grunt": "~0.4.5",
+    "grunt-contrib-clean": "^0.6.0",
+    "grunt-contrib-jshint": "^0.11.0",
+    "grunt-contrib-nodeunit": "^0.4.1",
+    "node-dir-diff": "doingweb/node-dir-diff"
+  },
+  "peerDependencies": {
+    "grunt": "~0.4.5"
+  },
+  "keywords": [
+    "gruntplugin",
+    "bower",
+    "images"
+  ],
+  "dependencies": {
+    "cheerio": "^0.18.0"
+  }
+}
