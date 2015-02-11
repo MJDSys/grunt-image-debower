@@ -69,9 +69,9 @@ grunt.initConfig({
 			expand: true,
 			cwd: 'dist',
 			src: [ '**/*.html' ],
-			dest: 'tmp/no_icons',
-			srcImages: 'test/fixtures/images',
-			destImages: 'tmp/no_icons/images'
+			dest: 'dist',
+			srcImages: 'app',
+			destImages: 'dist/images'
 		}
 	},
 });
@@ -82,6 +82,7 @@ In lieu of a formal styleguide, take care to maintain the existing coding style.
 
 ## Release History
 0.0.2
+ - Update documentation to include a better example.
  - Include grunt-cli in development dependencies, to ensure npm test works.
 
 0.0.1
