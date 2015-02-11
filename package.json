@@ -1,6 +1,6 @@
 {
   "name": "grunt-image-debower",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Copies images from a bower repository based upon what is included in html files.",
   "homepage": "https://github.com/MJDSys/grunt-image-copier",
   "author": {
