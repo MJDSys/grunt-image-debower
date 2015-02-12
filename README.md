@@ -82,7 +82,7 @@ In lieu of a formal styleguide, take care to maintain the existing coding style.
 
 ## Release History
 0.0.3
- - Add support for the <img> and <object> tags.
+ - Add support for the `<img>` and `<object>` tags.
 
 0.0.2
  - Update documentation to include a better example.
