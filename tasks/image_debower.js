@@ -17,10 +17,10 @@
  * Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301  USA
  */
 
-'use strict';
+"use strict";
 
 module.exports = function(grunt) {
-	var cheerio = require('cheerio');
+	var cheerio = require("cheerio");
 
 	var srcReplace = function($, file, attrName) {
 		return function(_, image) {
@@ -29,7 +29,7 @@ module.exports = function(grunt) {
 			var origPath = image.attr(attrName);
 			var regexp = /\/bower_components\/([^\/]*)\/.*\/(.*)/;
 			var matches = regexp.exec(origPath);
-			var newPath = file.destImages + '/' + matches[1] + '/' + matches[2];
+			var newPath = file.destImages + "/" + matches[1] + "/" + matches[2];
 
 			grunt.file.copy(file.srcImages + origPath, newPath);
 
@@ -43,17 +43,17 @@ module.exports = function(grunt) {
 	var processFile = function(file) {
 		return function(contents) {
 			var $ = cheerio.load(contents);
-			if ($('md-icon').length === 0) {
+			if ($("md-icon").length === 0) {
 				return contents;
 			}
-			$('md-icon').each(srcReplace($, file, 'icon'));
-			$('img').each(srcReplace($, file, 'src'));
-			$('object').each(srcReplace($, file, 'data'));
+			$("md-icon").each(srcReplace($, file, "icon"));
+			$("img").each(srcReplace($, file, "src"));
+			$("object").each(srcReplace($, file, "data"));
 			return $.html();
 		};
 	};
 
-	grunt.registerMultiTask('image_debower', 'Imager thing', function() {
+	grunt.registerMultiTask("image_debower", "Imager thing", function() {
 		this.files.forEach(function(file) {
 			grunt.file.copy(file.src[0], file.dest, { process: processFile(file) });
 		});

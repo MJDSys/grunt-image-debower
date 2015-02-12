@@ -17,7 +17,7 @@
  * Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301  USA
  */
 
-'use strict';
+"use strict";
 
 module.exports = function(grunt) {
 
@@ -25,58 +25,58 @@ module.exports = function(grunt) {
 	grunt.initConfig({
 		jshint: {
 			all: [
-			'Gruntfile.js',
-			'tasks/*.js',
-			'<%= nodeunit.tests %>'
+			"Gruntfile.js",
+			"tasks/*.js",
+			"<%= nodeunit.tests %>"
 			],
 			options: {
-				jshintrc: '.jshintrc'
+				jshintrc: ".jshintrc"
 			}
 		},
 
 		// Before generating any new files, remove any previously-created files.
 		clean: {
-			tests: ['tmp']
+			tests: ["tmp"]
 		},
 
 		// Configuration to be run (and then tested).
 		image_debower: {
 			no_icons: {
 				expand: true,
-				cwd: 'test/fixtures/no_icons',
-				src: [ '*.html' ],
-				dest: 'tmp/no_icons',
-				srcImages: 'test/fixtures/images',
-				destImages: 'tmp/no_icons/images'
+				cwd: "test/fixtures/no_icons",
+				src: [ "*.html" ],
+				dest: "tmp/no_icons",
+				srcImages: "test/fixtures/images",
+				destImages: "tmp/no_icons/images"
 			},
 			with_icons: {
 				expand: true,
-				cwd: 'test/fixtures/with_icons',
-				src: [ '*.html' ],
-				dest: 'tmp/with_icons',
-				srcImages: 'test/fixtures/images',
-				destImages: 'tmp/with_icons/images'
+				cwd: "test/fixtures/with_icons",
+				src: [ "*.html" ],
+				dest: "tmp/with_icons",
+				srcImages: "test/fixtures/images",
+				destImages: "tmp/with_icons/images"
 			},
 		},
 
 		// Unit tests.
 		nodeunit: {
-			tests: ['test/*_test.js']
+			tests: ["test/*_test.js"]
 		}
 	});
 
 	// Actually load this plugin's task(s).
-	grunt.loadTasks('tasks');
+	grunt.loadTasks("tasks");
 
 	// These plugins provide necessary tasks.
-	grunt.loadNpmTasks('grunt-contrib-jshint');
-	grunt.loadNpmTasks('grunt-contrib-clean');
-	grunt.loadNpmTasks('grunt-contrib-nodeunit');
+	grunt.loadNpmTasks("grunt-contrib-jshint");
+	grunt.loadNpmTasks("grunt-contrib-clean");
+	grunt.loadNpmTasks("grunt-contrib-nodeunit");
 
 	// Whenever the "test" task is run, first clean the "tmp" dir, then run this
 	// plugin's task(s), then test the result.
-	grunt.registerTask('test', ['clean', 'image_debower', 'nodeunit']);
+	grunt.registerTask("test", ["clean", "image_debower", "nodeunit"]);
 
 	// By default, lint and run all tests.
-	grunt.registerTask('default', ['jshint', 'test']);
+	grunt.registerTask("default", ["jshint", "test"]);
 };

@@ -17,11 +17,10 @@
  * Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301  USA
  */
 
-'use strict';
+"use strict";
 
-var grunt = require('grunt'),
-	ndd = require('node-dir-diff'),
-	path = require('path');
+var ndd = require("node-dir-diff"),
+	path = require("path");
 
 /*
   ======== A Handy Little Nodeunit Reference ========
@@ -52,12 +51,12 @@ exports.image_debower = {
 		test.expect(1);
 
 		var dd = new ndd.Dir_Diff([
-			path.resolve('tmp/no_icons'),
-			path.resolve('test/expected/no_icons')
-		], 'content' );
+			path.resolve("tmp/no_icons"),
+			path.resolve("test/expected/no_icons")
+		], "content" );
 
 		dd.compare(function(err, result) {
-			test.equal(result.deviation, 0, 'When no icons are given, the html should be unmodified.');
+			test.equal(result.deviation, 0, "When no icons are given, the html should be unmodified.");
 			test.done();
 		});
 	},
@@ -65,12 +64,12 @@ exports.image_debower = {
 		test.expect(1);
 
 		var dd = new ndd.Dir_Diff([
-			path.resolve('tmp/with_icons'),
-			path.resolve('test/expected/with_icons')
-		], 'content' );
+			path.resolve("tmp/with_icons"),
+			path.resolve("test/expected/with_icons")
+		], "content" );
 
 		dd.compare(function(err, result) {
-			test.equal(result.deviation, 0, 'When icons are given, the html should be modified as appropriate, with images copied in.');
+			test.equal(result.deviation, 0, "When icons are given, the html should be modified as appropriate, with images copied in.");
 			test.done();
 		});
 	},
