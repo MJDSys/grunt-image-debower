@@ -22,27 +22,33 @@
 module.exports = function(grunt) {
 	var cheerio = require('cheerio');
 
+	var srcReplace = function($, file, attrName) {
+		return function(_, image) {
+			image = $(image);
+
+			var origPath = image.attr(attrName);
+			var regexp = /\/bower_components\/([^\/]*)\/.*\/(.*)/;
+			var matches = regexp.exec(origPath);
+			var newPath = file.destImages + '/' + matches[1] + '/' + matches[2];
+
+			grunt.file.copy(file.srcImages + origPath, newPath);
+
+			if (newPath.indexOf(file.orig.dest) === 0) {
+				newPath = newPath.substr(file.orig.dest.length);
+			}
+			image.attr(attrName, newPath);
+		}
+	}
+
 	var processFile = function(file) {
 		return function(contents) {
 			var $ = cheerio.load(contents);
 			if ($('md-icon').length === 0) {
 				return contents;
 			}
-			$('md-icon').each(function(_, image) {
-				image = $(image);
-
-				var origPath = image.attr('icon');
-				var regexp = /\/bower_components\/([^\/]*)\/.*\/(.*)/;
-				var matches = regexp.exec(origPath);
-				var newPath = file.destImages + '/' + matches[1] + '/' + matches[2];
-
-				grunt.file.copy(file.srcImages + origPath, newPath);
-
-				if (newPath.indexOf(file.orig.dest) === 0) {
-					newPath = newPath.substr(file.orig.dest.length);
-				}
-				image.attr('icon', newPath);
-			});
+			$('md-icon').each(srcReplace($, file, 'icon'));
+			$('img').each(srcReplace($, file, 'src'));
+			$('object').each(srcReplace($, file, 'data'));
 			return $.html();
 		};
 	};
