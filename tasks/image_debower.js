@@ -27,16 +27,18 @@ module.exports = function(grunt) {
 			image = $(image);
 
 			var origPath = image.attr(attrName);
-			var regexp = /\/bower_components\/([^\/]*)\/.*\/(.*)/;
-			var matches = regexp.exec(origPath);
-			var newPath = file.destImages + "/" + matches[1] + "/" + matches[2];
+			if (origPath !== undefined) {
+				var regexp = /\/bower_components\/([^\/]*)\/.*\/(.*)/;
+				var matches = regexp.exec(origPath);
+				var newPath = file.destImages + "/" + matches[1] + "/" + matches[2];
 
-			grunt.file.copy(file.srcImages + origPath, newPath);
+				grunt.file.copy(file.srcImages + origPath, newPath);
 
-			if (newPath.indexOf(file.orig.dest) === 0) {
-				newPath = newPath.substr(file.orig.dest.length);
+				if (newPath.indexOf(file.orig.dest) === 0) {
+					newPath = newPath.substr(file.orig.dest.length);
+				}
+				image.attr(attrName, newPath);
 			}
-			image.attr(attrName, newPath);
 		}
 	}
 

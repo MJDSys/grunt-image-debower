@@ -60,6 +60,19 @@ exports.image_debower = {
 			test.done();
 		});
 	},
+	no_src: function(test) {
+		test.expect(1)
+
+		var dd = new ndd.Dir_Diff([
+			path.resolve("tmp/no_src"),
+			path.resolve("test/expected/no_src")
+		], "content" )
+
+		dd.compare(function(err, result) {
+			test.equal(result.deviation, 0, "When no src attribute is given, everything should still work.")
+			test.done()
+		})
+	},
 	with_icons: function(test) {
 		test.expect(1);
 

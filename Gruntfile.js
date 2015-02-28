@@ -49,6 +49,14 @@ module.exports = function(grunt) {
 				srcImages: "test/fixtures/images",
 				destImages: "tmp/no_icons/images"
 			},
+			no_src: {
+				expand: true,
+				cwd: "test/fixtures/no_src",
+				src: [ "*.html" ],
+				dest: "tmp/no_src",
+				srcImages: "test/fixtures/images",
+				destImages: "tmp/no_src/images"
+			},
 			with_icons: {
 				expand: true,
 				cwd: "test/fixtures/with_icons",
