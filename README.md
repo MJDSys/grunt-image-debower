@@ -81,6 +81,11 @@ grunt.initConfig({
 In lieu of a formal styleguide, take care to maintain the existing coding style. Add unit tests for any new or changed functionality. Lint and test your code using [Grunt](http://gruntjs.com/).
 
 ## Release History
+0.0.5
+ - Don't ignore pages with no `<md-icon>` tags.
+ - Handle md-svg-src in md-icon now.
+ - Don't fail when `<img>` tags are missing src attributes.
+
 0.0.4
  - Fix documentation.
 
