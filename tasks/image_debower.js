@@ -43,9 +43,6 @@ module.exports = function(grunt) {
 	var processFile = function(file) {
 		return function(contents) {
 			var $ = cheerio.load(contents);
-			if ($("md-icon").length === 0) {
-				return contents;
-			}
 			$("md-icon").each(srcReplace($, file, "icon"));
 			$("img").each(srcReplace($, file, "src"));
 			$("object").each(srcReplace($, file, "data"));
