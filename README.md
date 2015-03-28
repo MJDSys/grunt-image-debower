@@ -81,6 +81,9 @@ grunt.initConfig({
 In lieu of a formal styleguide, take care to maintain the existing coding style. Add unit tests for any new or changed functionality. Lint and test your code using [Grunt](http://gruntjs.com/).
 
 ## Release History
+0.0.6
+ - Update cheerio to the latest version.
+
 0.0.5
  - Don't ignore pages with no `<md-icon>` tags.
  - Handle md-svg-src in md-icon now.
